@@ -26,63 +26,65 @@ public class GildedRoseTest {
     items.add(new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20));  //9
     items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20));  //10
     items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 3, 50));  //11
+    items.add(new Item("Conjured Mana Cake", 5, 20)); //12
     GildedRose.items = items;
     GildedRose.updateQuality();
   }
   
   @Test
   public void sulfurasNotChangingQuality() {
-    assertEquals(items.get(3).quality,80);
+    assertEquals(80,items.get(3).quality);
   }
   
   @Test
-  public void sulfurasNotAgeing() {
-    assertEquals(items.get(3).sellIn,0);
+  public void sulfurasNotAgeing() { assertEquals(0,items.get(3).sellIn);
   }
   
   @Test
-  public void normalItemsAgeing() {
-    assertEquals(items.get(0).sellIn,9);
+  public void normalItemsAgeing() { assertEquals(9,items.get(0).sellIn);
   }
   
   @Test
-  public void normalItemsChangingQuality() {
-    assertEquals(items.get(0).quality,19);
+  public void normalItemsChangingQuality() { assertEquals(19,items.get(0).quality);
   }
   
   @Test
-  public void qualityNotLowerThanZero() {
-    assertEquals(items.get(6).quality,0);
+  public void qualityNotLowerThanZero() { assertEquals(0,items.get(6).quality);
   }
   
   @Test
   public void qualityDecreasesTwiceAsFast() {
-    assertEquals(items.get(7).quality,23);
+    assertEquals(23,items.get(7).quality);
   }
   
   @Test
   public void agedBrieQualityIncreases() {
-    assertEquals(items.get(1).quality,1);
+    assertEquals(1,items.get(1).quality);
   }
   
   @Test
   public void qualityNotBeyond50() {
-    assertEquals(items.get(8).quality,50); //Brie
-    assertEquals(items.get(11).quality,50); //BSPass
+    assertEquals(50,items.get(8).quality); //Brie
+    assertEquals(50,items.get(11).quality); //BSPass
   }
   
   @Test
   public void backstagePassAfterConcertToZeroQuality() {
-    assertEquals(items.get(9).quality,0);
+    assertEquals(0,items.get(9).quality);
   }
   
   @Test
   public void backstagePassIncreaseQualityMoreThan10Days() {
-    assertEquals(items.get(4).quality,47);
+    assertEquals(47,items.get(4).quality);
   }
   
   @Test
   public void backstagePassIncreaseQualityWithin10Days() {
-    assertEquals(items.get(10).quality,23);
+    assertEquals(23,items.get(10).quality);
+  }
+  
+  @Test
+  public void conjuredItemsQualityChangeFaster() {
+    assertEquals(18,items.get(12).quality);
   }
 }
