@@ -14,19 +14,20 @@ public class GildedRoseTest {
   @Before
   public void setUp() {
     this.items = new ArrayList<>();
-    items.add(new Item("+5 Dexterity Vest", 10, 20)); //0
-    items.add(new Item("Aged Brie", 2, 0));  //1
-    items.add(new Item("Elixir of the Mongoose", 5, 3));  //2
-    items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));  //3
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 46));  //4
-    items.add(new Item("Conjured Mana Cake", 5, 20));  //5
-    items.add(new Item("+5 Dexterity Vest", 10, 0)); //6
-    items.add(new Item("+5 Dexterity Vest", -1, 25)); //7
-    items.add(new Item("Aged Brie", 10, 50));  //8
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20));  //9
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20));  //10
-    items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 3, 50));  //11
-    items.add(new Item("Conjured Mana Cake", 5, 20)); //12
+    ItemFactory iF = new ItemFactory();
+    items.add(iF.makeItem("+5 Dexterity Vest", 10, 20)); //0
+    items.add(iF.makeItem("Aged Brie", 2, 0));  //1
+    items.add(iF.makeItem("Elixir of the Mongoose", 5, 3));  //2
+    items.add(iF.makeItem("Sulfuras, Hand of Ragnaros", 0, 80));  //3
+    items.add(iF.makeItem("Backstage passes to a TAFKAL80ETC concert", 15, 46));  //4
+    items.add(iF.makeItem("Conjured Mana Cake", 5, 20));  //5
+    items.add(iF.makeItem("+5 Dexterity Vest", 10, 0)); //6
+    items.add(iF.makeItem("+5 Dexterity Vest", -1, 25)); //7
+    items.add(iF.makeItem("Aged Brie", 10, 50));  //8
+    items.add(iF.makeItem("Backstage passes to a TAFKAL80ETC concert", -1, 20));  //9
+    items.add(iF.makeItem("Backstage passes to a TAFKAL80ETC concert", 5, 20));  //10
+    items.add(iF.makeItem("Backstage passes to a TAFKAL80ETC concert", 3, 50));  //11
+    items.add(iF.makeItem("Conjured Mana Cake", 5, 20)); //12
     GildedRose.items = items;
     GildedRose.updateQuality();
   }
